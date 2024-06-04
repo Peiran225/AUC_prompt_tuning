@@ -1,0 +1,1 @@
+{"eval/loss": 0.5090353488922119, "eval/roc_auc": 0.5703670960680307, "eval/runtime": 1.3456, "eval/samples_per_second": 648.047, "eval/steps_per_second": 20.809, "train/global_step": 486, "_timestamp": 1717474032.8661146, "_runtime": 740.1732547283173, "_step": 973, "tr_loss": 0.05575433745980263, "train/epoch": 0.52}
