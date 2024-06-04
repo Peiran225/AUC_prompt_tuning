@@ -204,9 +204,9 @@ class AUCTrainer(Trainer):
             outputs_softmax = F.softmax(outputs.logits,dim=1)
             y_pred = outputs_softmax[:,1]
             labels = inputs['labels'].view(-1,1).float()
-            self.a = self.a.to(self.args.device)
-            self.b = self.b.to(self.args.device)
-            self.w = self.w.to(self.args.device)
+            self.a = self.a.to(self.args.device).requires_grad_()
+            self.b = self.b.to(self.args.device).requires_grad_()
+            self.w = self.w.to(self.args.device).requires_grad_()
 
             auc_loss = (1 - self.p) * torch.mean((y_pred - self.a)**2 * (1 == labels).float()) + self.p * torch.mean((y_pred - self.b)**2 * (0 == labels).float()) + \
             2 * (1+ self.w) * ( torch.mean((self.p * y_pred * (0 == labels).float() - (1 - self.p) * y_pred * (1==labels).float()))) - self.p * (1 - self.p) * self.w**2
